@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products client App</title>
+
+</head>
+
+<body>
+  <!-- Navigation-->
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap 5</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a id="loginLink" class="nav-link" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Nav -->
+
+    <!-- Main Content - Products etc. -->
+    <div class="container">
+      <div class="row">
+        <!-- Page Header -->
+        <h2 class="mt-5">Products List</h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <!-- Page Body Left Column (menu) -->
+          <div id="categoryList" class="list-group">
+            <!-- placeholders - replace with real category links -->
+            <button data-category_id="0" class="category-link list-group-item list-group-item-action">All Products</button>
+            <button data-category_id="1" class="category-link list-group-item list-group-item-action">Second item</button>
+            <button data-category_id="2" class="category-link list-group-item list-group-item-action">Third item</button>
+          </div>
+        </div> <!-- End category col -->
+        <div class="col-sm-10">
+          <!-- Page Body Right Side (Content goes here) -->
+          <div id="products">
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>name</th>
+                  <th>description</th>
+                  <th>stock</th>
+                  <th>price</th>
+                </tr>
+              </thead>
+              <tbody id="productRows">
+                <!-- Product Rows to be inserted here -->
+              </tbody>
+            </table>
+          </div>
+          <!-- Add product toggle button goes here
+            <button id="AddProductButton" type="button" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#ProductFormDialog">
+              Add Product
+            </button>
+          -->
+
+        </div> <!-- End Product col -->
+      </div> <!-- End Row -->
+    </div> <!-- End Main Content-->
+
+    <!-- Modal forms go here-->
+    <!-- Bootstrap Modal Dialogs-->
+
+    <!-- Product dialog -->
+    <div class="modal fade" id="ProductFormDialog">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Header -->
+          <div class="modal-header">
+            <h4 class="modal-title" id="productFormTitle">Product Details</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Body - contains form inputs-->
+          <!-- The id of each input matches a Product property -->
+          <div class="modal-body">
+            <!-- Product Form -->
+            <form id="productForm" name="productForm">
+              <div class="form-group">
+                <label for="category_id">Category:</label>
+                <input id="category_id" type="text" class="form-control" name="category_id">
+                <!-- 
+                  <select id="category_id" class="form-select" name="category_id">
+                    <option selected>Choose a category</option>
+                  </select>
+                -->
+              </div>
+              <div class="form-group">
+                <label for="product_name">Name:</label>
+                <input id="product_name" type="text" class="form-control" name="product_name">
+              </div>
+              <div class="form-group">
+                <label for="product_description">Description:</label>
+                <input id="product_description" type="text" class="form-control" name="product_description">
+              </div>
+              <div class="form-group">
+                <label for="product_stock">Stock:</label>
+                <input id="product_stock" type="number" class="form-control" name="product_stock">
+              </div>
+              <div class="form-group">
+                <label for="product_price">Price:</label>
+                <input id="product_price" type="number" min="0.00" max="10000.00" step="0.01" class="form-control"
+                  name="product_price">
+              </div>
+              <!-- productId is a hidden field value is not required but set = 0-->
+              <input id="id" type="hidden" value="0">
+            </form><!-- End form-->
+          </div> <!-- End Body -->
+
+          <!-- footer -->
+          <div class="modal-footer">
+            <!-- Buttons - note onclick and data-dismiss attribtes-->
+            <button id="formSubmit" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+            </button>
+          </div> <!-- End Footer -->
+
+        </div>
+      </div>
+    </div> <!-- End Product Form  -->
+
+
+    <!-- Load CSS + JavaScript at end of page body -->
+    <!-- Load site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Load BootStrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Load BootStrap 5 JS Bundle-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+    <!-- Bootstrap icons https://icons.getbootstrap.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+        integrity="sha384-EvBWSlnoFgZlXJvpzS+MAUEjvN7+gcCwH+qh7GRFOGgZO0PuwOFro7qPOJnLfe7l" crossorigin="anonymous">
+
+
+    <!-- The view script for this page - loaded as a module -->
+    <script src="./src/index.js" type="module"></script>
+
+
+  </body>
+
+</html>
