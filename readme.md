@@ -4,7 +4,7 @@ Enda Lee 2022
 
 ### Quick Start
 
-1. Make sure the latest `Server API` app is running on http://localhost:5000
+1. Make sure the **[latest Server API](https://github.com/elee-tudublin/2022.SSWD_6.2_Web-API_Database)** app is running on http://localhost:5000
 2. Download the start site from this repository.
 3. Open in VS Code (separate to the server API instance).
 4. In a terminal run `npm install`.
@@ -35,7 +35,7 @@ The client functionality is dependent on a server API with Category and Product 
 
 Start with the completed server API to date:
 
-https://github.com/elee-tudublin/2022.SSWD_6.1_Web-API_Database
+https://github.com/elee-tudublin/2022.SSWD_6.2_Web-API_Database
 
 ##### Client-side:
 
